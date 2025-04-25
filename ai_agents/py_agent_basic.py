@@ -38,11 +38,17 @@ def query_groq_api(model: str, system_content: str,user_query: str):
     else:
         raise Exception(f"Request failed: {response.status_code} - {response.text}")
 
+
+# Defining the LLM Persona
+system_content="You're an expert in building AI Agents using Python"
+
+#User query
+user_query="How to effectively build AI Agents using LLM"
 # Example usage
 response_data = query_groq_api(
     model="meta-llama/llama-4-scout-17b-16e-instruct",
-    system_content="You're an expert in building AI Agents using Python",
-    user_query="How to effectively build AI Agents using LLM"
+    system_content=system_content,
+    user_query=user_query
 )
 
 # Print the assistant's reply
